@@ -1,3 +1,8 @@
 ---
-
+linux_servers:
+  hosts:
+    ansible:
+windows_servers:
+  hosts:
+    WIN-PCBGIEDUA3J:
 ...
