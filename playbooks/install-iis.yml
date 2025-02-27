@@ -1,6 +1,6 @@
 ---
 - name: Install and Configure Internet Information Services (IIS) on Windows Server
-  hosts: windows_web_servers
+  hosts: web-02.ootbi.co.za
   #become: yes
   gather_facts: false
   tasks:
@@ -16,7 +16,11 @@
         name: W3SVC
         state: started
         start_mode: auto
-    - name: Create website folder
+    - name: Remove Default Web Site
+      community.windows.win_iis_website:
+        name: "Default Web Site"
+        state: absent
+    - name: Create Beacon Trucking website folder
       win_file:
         path: C:\inetpub\wwwroot\portal.beacontrucking.ky
         state: directory
@@ -26,8 +30,8 @@
         state: started
         port: 80
         ip: '*'
-        hostname: portal.beacon.ky
-        application_pool: beacontrucking
+        hostname: beacon.ootbi.co.za
+        application_pool: portal.beacon.ky
         physical_path: C:\inetpub\wwwroot\portal.beacontrucking.ky
         parameters: logfile.directory:C:\inetpub\logs
       register: website
