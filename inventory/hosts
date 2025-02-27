@@ -2,7 +2,11 @@
 linux_servers:
   hosts:
     ansible:
-windows_servers:
+windows_web_servers:
   hosts:
-    WIN-PCBGIEDUA3J:
+    web-01.ootbi.co.za:
+    web-02.ootbi.co.za:
+windows_sql_servers:
+  hosts:
+    db-01.ootbi.co.za:
 ...
