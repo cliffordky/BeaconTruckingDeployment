@@ -31,7 +31,7 @@
         port: 80
         ip: '*'
         hostname: beacon.ootbi.co.za
-        application_pool: portal.beacon.ky
+        application_pool: DefaultAppPool
         physical_path: C:\inetpub\wwwroot\portal.beacontrucking.ky
         parameters: logfile.directory:C:\inetpub\logs
       register: website
