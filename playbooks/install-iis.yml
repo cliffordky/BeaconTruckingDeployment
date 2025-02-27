@@ -8,6 +8,10 @@
     #  win_file:
     #    path: C:\workspace
     #    state: directory
+    - name: Install .Net 8
+      win_chocolatey:
+        name: dotnet-8.0-runtime
+        state: present
     - name: Install 7zip
       ansible.windows.win_package:
         path: https://www.7-zip.org/a/7z2409-x64.msi
