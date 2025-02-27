@@ -5,6 +5,7 @@ pipeline {
     stage('Install IIS') {
       steps {
        sh 'ansible-galaxy collection install -r requirements.yml'
+       sh 'ansible-playbook -i inventory/windows_web_servers.yml playbooks/install-iis.yml'
       }
     }
   }
