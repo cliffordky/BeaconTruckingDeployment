@@ -1,7 +1,7 @@
 ---
 - name: Install and Configure Internet Information Services (IIS) on Windows Server
   hosts: windows_web_servers
-  become: yes
+  #become: yes
   gather_facts: false
   tasks:
     - name: Install IIS
