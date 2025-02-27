@@ -48,4 +48,14 @@
         physical_path: C:\inetpub\wwwroot\portal.beacontrucking.ky
         parameters: logfile.directory:C:\inetpub\logs
       register: website
+      - name: Copy a folder recursively where the source is on the remote host
+      - name: Create Beacon Trucking website folder
+        win_file:
+          path: C:\inetpub\wwwroot\_backups\portal.beacontrucking.ky
+          state: directory
+    - name: Backup existing website content
+      ansible.windows.win_copy:
+        src: C:\inetpub\wwwroot\portal.beacontrucking.ky
+        dest: C:\inetpub\wwwroot\_backups\portal.beacontrucking.ky
+        remote_src: true
 ...
