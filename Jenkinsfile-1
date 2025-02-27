@@ -9,7 +9,7 @@ pipeline {
           ansible-playbook --version
           ansible-galaxy --version
           ansible -m ping localhost
-          ansible -m win_ping windows_servers -i inventory/hosts
+          ansible -m win_ping windows_web_servers -i inventory/hosts
         '''
       }
     }
