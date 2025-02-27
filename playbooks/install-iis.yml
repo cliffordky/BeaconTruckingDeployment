@@ -25,7 +25,7 @@
         name: BeaconTrucking
         state: started
         port: 80
-        ip: *
+        ip: '*'
         hostname: portal.beacon.ky
         application_pool: beacontrucking
         physical_path: C:\inetpub\wwwroot\portal.beacontrucking.ky
