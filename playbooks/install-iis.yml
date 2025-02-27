@@ -16,4 +16,15 @@
         name: W3SVC
         state: started
         start_mode: auto
+    - name: Beacon Trucking Website
+      community.windows.win_iis_website:
+        name: BeaconTrucking
+        state: started
+        port: 80
+        ip: 127.0.0.1
+        hostname: portal.beacon.ky
+        application_pool: beacontrucking
+        physical_path: C:\inetpub\wwwroot\portal.beacontrucking.ky
+        parameters: logfile.directory:C:\inetpub\wwwroot\logs
+      register: website
 ...
