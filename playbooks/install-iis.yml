@@ -4,6 +4,14 @@
   #become: yes
   gather_facts: false
   tasks:
+    - name: Create Working folder
+      win_file:
+        path: C:\workspace
+        state: directory
+    - name: Download foo.conf
+      ansible.builtin.get_url:
+        url: https://www.7-zip.org/a/7z2409-x64.exe
+        dest: C:\workspace
     - name: Install IIS
       win_feature:
         name: Web-Server
