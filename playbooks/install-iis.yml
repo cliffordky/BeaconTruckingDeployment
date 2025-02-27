@@ -1,6 +1,16 @@
-- name: Install IIS (Web-Server and Web-Common-Http)
-  ansible.windows.win_feature:
-    name:
-      - Web-Server
-      - Web-Common-Http
-    state: present
+---yaml
+- name: Install and Configure Internet Information Services (IIS) on Windows Server
+  hosts: windows_web_servers
+  become: yes
+  gather_facts: false
+  tasks:
+    - name: Install IIS
+      win_feature:
+      name: Web-Server
+      state: present
+    - name: Ensure IIS service is running and set to start automatically
+      win_service:
+      name: W3SVC
+      state: started
+      start_mode: auto
+...
