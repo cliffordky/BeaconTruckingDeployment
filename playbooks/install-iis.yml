@@ -10,7 +10,7 @@
     #    state: directory
     - name: Install 7zip
       ansible.windows.win_package:
-        path: https://www.7-zip.org/a/7z2409-x64.exe
+        path: https://www.7-zip.org/a/7z2409-x64.msi
         product_id: 7-Zip
         state: present
     - name: Install IIS
