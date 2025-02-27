@@ -8,6 +8,9 @@
       win_feature:
         name: Web-Server
         state: present
+        include_sub_features: true
+        include_management_tools: true
+      register: win_feature
     - name: Ensure IIS service is running and set to start automatically
       win_service:
         name: W3SVC
