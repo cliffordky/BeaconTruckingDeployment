@@ -1,6 +1,6 @@
 ---
 - name: Install and Configure Internet Information Services (IIS) on Windows Server
-  hosts: web-02.ootbi.co.za
+  hosts: windows_web_servers
   #become: yes
   gather_facts: false
   tasks:
