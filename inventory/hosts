@@ -7,7 +7,7 @@ windows_build_servers:
     web-01.ootbi.co.za:
 windows_web_servers:
   hosts:
-    web-02.ootbi.co.za:
+    #web-02.ootbi.co.za:
     web-03.ootbi.co.za:
 windows_sql_servers:
   hosts:
