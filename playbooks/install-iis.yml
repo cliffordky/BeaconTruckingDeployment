@@ -48,10 +48,10 @@
         physical_path: C:\inetpub\wwwroot\portal.beacontrucking.ky
         parameters: logfile.directory:C:\inetpub\logs
       register: website
-    - name: Create Beacon Trucking website folder
-        win_file:
-          path: C:\inetpub\wwwroot\_backups\portal.beacontrucking.ky
-          state: directory
+    - name: Create website backup folder
+      win_file:
+        path: C:\inetpub\wwwroot\_backups\portal.beacontrucking.ky
+        state: directory
     - name: Backup existing website content
       ansible.windows.win_copy:
         src: C:\inetpub\wwwroot\portal.beacontrucking.ky
