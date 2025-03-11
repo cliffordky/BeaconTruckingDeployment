@@ -14,5 +14,5 @@ windows_sql_servers:
     db-01.ootbi.co.za:
 hurleys_nodes:
   hosts:
-    ec2-100-27-207-97.compute-1.amazonaws.com:
+    100.27.207.97:
 ...
