@@ -1,0 +1,60 @@
+---
+- name: Install and Configure Internet Information Services (IIS) on Windows Server
+  hosts: hurleys_nodes
+  #become: yes
+  gather_facts: false
+  tasks:
+    #- name: Create Working folder
+    #  win_file:
+    #    path: C:\workspace
+    #    state: directory
+    - name: Install .Net 8
+      win_chocolatey:
+        name: dotnet-8.0-runtime
+        state: present
+    - name: Install 7zip
+      ansible.windows.win_package:
+        path: https://www.7-zip.org/a/7z2409-x64.msi
+        product_id: 7-Zip
+        state: present
+    - name: Install IIS
+      win_feature:
+        name: Web-Server
+        state: present
+        include_sub_features: false
+        include_management_tools: true
+      register: win_feature
+    - name: Ensure IIS service is running and set to start automatically
+      win_service:
+        name: W3SVC
+        state: started
+        start_mode: auto
+    - name: Remove Default Web Site
+      community.windows.win_iis_website:
+        name: "Default Web Site"
+        state: absent
+    - name: Create Hurleys website folder
+      win_file:
+        path: C:\inetpub\wwwroot\portal.hurleys.ky
+        state: directory
+    - name: Hurleys Portal Website
+      community.windows.win_iis_website:
+        name: portal.hurleys.ky
+        state: started
+        port: 80
+        ip: '*'
+        hostname: portal.hurleys.ky
+        application_pool: DefaultAppPool
+        physical_path: C:\inetpub\wwwroot\portal.hurleys.ky
+        parameters: logfile.directory:C:\inetpub\logs
+      register: website
+    - name: Create website backup folder
+      win_file:
+        path: C:\inetpub\wwwroot\_backups\portal.hurleys.ky
+        state: directory
+    - name: Backup existing website content
+      ansible.windows.win_copy:
+        src: C:\inetpub\wwwroot\portal.hurleys.ky
+        dest: C:\inetpub\wwwroot\_backups\portal.hurleys.ky
+        remote_src: true
+...

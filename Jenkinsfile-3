@@ -1,0 +1,12 @@
+pipeline {
+  agent {label 'agent1'}
+
+  stages {
+    stage('Install IIS') {
+      steps {
+       sh 'ansible-galaxy collection install -r requirements.yml'
+       sh 'ansible-playbook -i inventory/hosts playbooks/hurleys-node.yml'
+      }
+    }
+  }
+}
