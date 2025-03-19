@@ -10,6 +10,7 @@ windows_web_servers:
     #web-02.ootbi.co.za:
     web-03.ootbi.co.za:
     ec2-100-27-207-97.compute-1.amazonaws.com:
+    beacon.ootbi.co.za:
 windows_sql_servers:
   hosts:
     db-01.ootbi.co.za:
