@@ -12,10 +12,6 @@
       win_chocolatey:
         name: dotnet-8.0-runtime
         state: present
-    - name: Install dotnet-8.0-windowshosting
-      win_chocolatey:
-        name: dotnet-8.0-windowshosting
-        state: present
     - name: Install 7zip
       ansible.windows.win_package:
         path: https://www.7-zip.org/a/7z2409-x64.msi
@@ -33,6 +29,10 @@
         name: W3SVC
         state: started
         start_mode: auto
+    - name: Install dotnet-8.0-windowshosting
+      win_chocolatey:
+        name: dotnet-8.0-windowshosting
+        state: present
     - name: Remove Default Web Site
       community.windows.win_iis_website:
         name: "Default Web Site"
