@@ -1,6 +1,6 @@
 ---
 - name: Install and Configure Internet Information Services (IIS) on Windows Server
-  hosts: beacon.ootbi.co.za
+  hosts: bt-web-01.ootbi.co.za
   #become: yes
   gather_facts: false
   tasks:
